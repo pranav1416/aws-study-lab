@@ -1,0 +1,28 @@
+# Environment files
+.env
+.env.*
+!.env.example
+
+# AWS credentials and local config
+.aws/
+awscliv2.zip
+
+# OS/editor files
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Terraform, for future use
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl

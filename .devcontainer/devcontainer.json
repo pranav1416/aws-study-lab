@@ -1,0 +1,27 @@
+{
+  "name": "aws-study-lab",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "remoteUser": "vscode",
+  "mounts": [
+    "source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind,consistency=cached"
+  ],
+  "containerEnv": {
+    "AWS_PROFILE": "${localEnv:AWS_PROFILE:saa-lab}",
+    "AWS_REGION": "${localEnv:AWS_REGION:us-east-1}",
+    "AWS_DEFAULT_REGION": "${localEnv:AWS_DEFAULT_REGION:us-east-1}"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "amazonwebservices.aws-toolkit-vscode",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "aws --version && git --version && python3 --version && jq --version"
+}
